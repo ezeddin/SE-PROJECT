@@ -8,7 +8,7 @@ sleep 1
 
 nohup $BASEPATH/elasticsearch-6.2.4/bin/elasticsearch &>/dev/null &
 
-sleep 10
+sleep 15
 
 curl --header "Content-Type: application/json" \
   --request PUT \
