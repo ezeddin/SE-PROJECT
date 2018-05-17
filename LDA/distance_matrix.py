@@ -76,6 +76,9 @@ def get_distance_matrix(docs_term_matrix, n_topics, n_docs):
     return distance_matrix
     
 
+
+    
+
 # --------------- Parameters ---------------
 # Number of topics
 n_topics = 10
@@ -90,3 +93,22 @@ raw_docs, docs_term_matrix, link_to_id, id_to_link, n_docs = load_data_from_elas
 distance_matrix = get_distance_matrix(docs_term_matrix, n_topics, n_docs)
 
 pdb.set_trace()
+
+def recommend_articles(chosen_doc_id):
+    related_doc_ids = get_closest_docs(chosen_doc_id)
+    chosen_doc = raw_docs[chosen_doc_id]
+    print("Chosen document: "+chosen_doc['title'])
+    print("Description: "+doc['description']+"\n")
+
+    for i in range(len(related_doc_ids)):
+        related_doc = raw_docs[related_doc_ids[i]]
+        print("Related document number "+str(i+1)+":")
+        print("Title: "+related_doc['title'])
+        print("Description: "+related_doc['description']+"\n")
+
+    return eval(input("Please pick a document by typing its number: "))
+
+def main():
+    start_doc = random.randint(0,len(raw_docs)-1)
+    new_doc = recommend_articles(start_doc)
+    print(new_doc)
