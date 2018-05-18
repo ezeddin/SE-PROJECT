@@ -1,15 +1,12 @@
 import numpy as np
-import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import TruncatedSVD
 from sklearn.decomposition import LatentDirichletAllocation
 from scipy.spatial import distance
-import requests
 from elasticsearch import Elasticsearch
 import random
 import argparse
 
-import pdb
 
 def load_data_from_elastic(stop_words_language, max_words):
     es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
