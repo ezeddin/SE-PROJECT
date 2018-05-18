@@ -1,4 +1,4 @@
-# SE-PROJECT
+# News Recommendation using Topic Modeling
 
 ## Elasticsearch (Restore the index)
 
